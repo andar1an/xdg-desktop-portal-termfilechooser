@@ -25,8 +25,8 @@ save="$3"
 path="$4"
 out="$5"
 
-cmd="/usr/bin/ranger"
-termcmd="${TERMCMD:-/usr/bin/kitty}"
+cmd="/usr/bin/yazi"
+termcmd="${TERMCMD:-/usr/bin/alacritty}"
 
 if [ "$save" = "1" ]; then
     set -- --choosefile="$out" --cmd='echo Select save path (see tutorial in preview pane; try pressing zv or zp if no preview)' "$path"
@@ -35,7 +35,7 @@ if [ "$save" = "1" ]; then
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!                 === WARNING! ===                 !!!
 !!! The contents of *whatever* file you open last in !!!
-!!! ranger will be *overwritten*!                    !!!
+!!! yazi will be *overwritten*!                    !!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 Instructions:
@@ -48,7 +48,7 @@ Notes:
 1) This file is provided for your convenience. You
    could delete it and choose another file to overwrite
    that, for example.
-2) If you quit ranger without opening a file, this file
+2) If you quit yazi without opening a file, this file
    will be removed and the save operation aborted.
 ' > "$path"
 elif [ "$directory" = "1" ]; then

@@ -105,7 +105,7 @@ install_data(
 )
 
 install_data(
-    'contrib/ranger-wrapper.sh',
+    'contrib/yazi-wrapper.sh',
     install_dir: join_paths(get_option('datadir'), 'xdg-desktop-portal-termfilechooser'),
 )
 
