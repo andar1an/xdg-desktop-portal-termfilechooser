@@ -24,7 +24,11 @@ ninja -C build install
 
 ```sh
 doas cp build/xdg-desktop-portal-termfilechooser /usr/libexec/xdg-desktop-portal-termfilechooser
+doas chown --reference=/usr/libexec/xdg-desktop-portal-gtk /usr/libexec/xdg-desktop-portal-termfilechooser
+doas chmod --reference=/usr/libexec/xdg-desktop-portal-gtk /usr/libexec/xdg-desktop-portal-termfilechooser
 doas cp build/org.freedesktop.impl.portal.desktop.termfilechooser.service /usr/share/dbus-1/services/org.freedesktop.impl.portal.desktop.termfilechooser
+doas chown --reference=/usr/share/dbus-1/services/org.freedesktop.impl.portal.desktop.gtk.service /usr/share/dbus-1/services/org.freedesktop.impl.portal.desktop.termfilechooser
+doas chmod --reference=/usr/share/dbus-1/services/org.freedesktop.impl.portal.desktop.gtk.service /usr/share/dbus-1/services/org.freedesktop.impl.portal.desktop.termfilechooser
 
 echo "[Desktop Entry]
 Type=Application
@@ -66,14 +70,24 @@ Icon=applications-system-symbolic
 Exec=/usr/libexec/xdg-desktop-portal-termfilechooser
 NoDisplay=true" | doas tee /usr/share/applications/xdg-desktop-portal-termfilechooser.desktop
 
+doas chown --reference=/usr/share/applications/xdg-desktop-portal-gtk.desktop /usr/share/applications/xdg-desktop-portal-termfilechooser.desktop
+doas chmod --reference=/usr/share/applications/xdg-desktop-portal-gtk.desktop /usr/share/applications/xdg-desktop-portal-termfilechooser.desktop
+
 echo "[portal]
 DBusName=org.freedesktop.impl.portal.desktop.termfilechooser
 Interfaces=org.freedesktop.impl.portal.FileChooser;
 UseIn=wlroots;niri;kde;gnome;Hyprland;Wayfire;river;phosh;i3" | doas tee /usr/share/xdg-desktop-portal/portals/termfilechooser.portal
 
+doas chown --reference=/usr/share/xdg-desktop-portal/portals/gtk.portal /usr/share/xdg-desktop-portal/portals/termfilechooser.portal
+doas chmod --reference=/usr/share/xdg-desktop-portal/portals/gtk.portal /usr/share/xdg-desktop-portal/portals/termfilechooser.portal
+
+doas mkdir /etc/xdg/xdg-desktop-portal-termfilechooser
 echo "[filechooser]
 cmd=/usr/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh
 default_dir=/home/andar1an/Downloads" | doas tee /etc/xdg/xdg-desktop-portal-termfilechooser/config
+
+doas chown --reference=/etc/xdg/xdg-desktop-portal-wlr/config /etc/xdg/xdg-desktop-portal-termfilechooser/config
+doas chmod --reference=/etc/xdg/xdg-desktop-portal-wlr/config /etc/xdg/xdg-desktop-portal-termfilechooser/config
 ```
 
 ## Running - Original Docs

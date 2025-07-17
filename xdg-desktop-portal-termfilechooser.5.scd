@@ -36,10 +36,10 @@ These options need to be placed under the **[filechooser]** section.
 	wrapper script.
 
 	The default wrapper script is provided at
-	/usr/share/xdg-desktop-portal-termfilechooser/ranger-wrapper.sh, and is
+	/usr/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh, and is
 	configured to launch the ranger file manager to select files.
 	By default, the wrapper script will use $TERMCMD if available. Otherwise,
-	it will fallback to "/usr/bin/kitty".
+	it will fallback to "/usr/bin/alacritty".
 	You can copy and edit the script to change this.
 
 	An example wrapper script which uses fd and fzf can also be found at
@@ -53,4 +53,4 @@ These options need to be placed under the **[filechooser]** section.
 
 # SEE ALSO
 
-**ranger**(1)
+**yazi**(1)
